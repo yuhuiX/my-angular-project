@@ -2,6 +2,10 @@
   "name": "my-angular-project",
   "version": "1.0.0",
   "description": "Angular FE + mocked BE using nest.js, for device return requests",
+  "scripts": {
+    "nest": "nest",
+    "ng": "ng"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/yuhuiX/my-angular-project.git"
@@ -11,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/yuhuiX/my-angular-project/issues"
   },
-  "homepage": "https://github.com/yuhuiX/my-angular-project#readme"
+  "homepage": "https://github.com/yuhuiX/my-angular-project#readme",
+  "devDependencies": {
+    "@angular/cli": "10.0.7",
+    "@nestjs/cli": "7.4.1"
+  }
 }
