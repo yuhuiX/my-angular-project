@@ -1,0 +1,15 @@
+{
+  "name": "my-angular-project",
+  "version": "1.0.0",
+  "description": "Angular FE + mocked BE using nest.js, for device return requests",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yuhuiX/my-angular-project.git"
+  },
+  "author": "Yuhui Xiong",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yuhuiX/my-angular-project/issues"
+  },
+  "homepage": "https://github.com/yuhuiX/my-angular-project#readme"
+}
