@@ -23,8 +23,8 @@ The FE is a simple form, with 4 fields:
 The BE parts (Basic auth, username "foo", password "bar"):
 - GET /devices?deviceSerialNumber=${deviceSerialNumber}, returns a Device
 - GET /skus?sku=${sku}, returns a Sku
-- POST /returnRequest, returns a ReturnRequest
-- PUT /returnRequest/{id}, returns a ReturnRequest
+- POST /returnRequests, returns a ReturnRequest
+- PUT /returnRequests/{id}, returns a ReturnRequest
 
 ```json
 // Device
