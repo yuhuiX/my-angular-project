@@ -1,4 +1,5 @@
 import { Test, TestingModule } from '@nestjs/testing';
+
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 
@@ -14,9 +15,11 @@ describe('AppController', () => {
     appController = app.get<AppController>(AppController);
   });
 
-  describe('root', () => {
-    it('should return "Hello World!"', () => {
-      expect(appController.getHello()).toBe('Hello World!');
+  describe('root page', () => {
+    it('should return "Welcome to the return request backend"', () => {
+      expect(appController.getPage()).toBe(
+        'Welcome to the return request backend',
+      );
     });
   });
 });
