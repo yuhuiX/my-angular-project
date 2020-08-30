@@ -1,3 +1,5 @@
+import { IsEmail, IsOptional, IsString } from 'class-validator';
+
 interface Device {
   deviceSerialNumber?: string;
   sku?: string;
@@ -8,7 +10,11 @@ export interface ReturnRequest extends InitialReturnRequest {
   devices: Device[];
 }
 
-export interface InitialReturnRequest {
+export class InitialReturnRequest {
+  @IsEmail()
   customerEmail: string;
+
+  @IsOptional()
+  @IsString()
   customerFullName?: string;
 }
