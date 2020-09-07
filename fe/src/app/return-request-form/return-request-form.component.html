@@ -1,0 +1,30 @@
+
+<form (ngSubmit)="onSubmit()">
+  <div>
+    <label for="customerEmail">Customer Email</label><br>
+    <input
+      type="text"
+      id="customerEmail"
+      required
+      [(ngModel)]="returnRequestData.customerEmail"
+      name="customerEmail"
+    >
+  </div>
+
+  <br>
+  <div>
+    <label for="customerFullName">Customer Fullname</label><br>
+    <input
+      type="text"
+      id="customerFullName"
+      required
+      [(ngModel)]="returnRequestData.customerFullName"
+      name="customerFullName"
+    >
+  </div>
+
+  <br>
+  <button type="submit">
+    Submit
+  </button>
+</form>
