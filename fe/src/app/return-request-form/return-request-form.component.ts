@@ -12,12 +12,9 @@ import { ReturnRequestHttpService } from '../return-request-http/return-request-
 export class ReturnRequestFormComponent implements OnInit {
   public returnRequestData: any = {};
 
-  constructor(
-    private returnRequestHttpService: ReturnRequestHttpService,
-  ) {}
+  constructor(private returnRequestHttpService: ReturnRequestHttpService) {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   onSubmit(): void {
     this.returnRequestHttpService

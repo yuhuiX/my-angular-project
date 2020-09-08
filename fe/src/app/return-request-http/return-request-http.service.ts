@@ -7,11 +7,10 @@ import { ReturnRequestData } from './return-request-http.interfaces';
 @Injectable()
 export class ReturnRequestHttpService {
   private ReturnRequestHttpBaseUrl = 'http://localhost:3000';
-  private returnRequestEndpoint = this.ReturnRequestHttpBaseUrl + '/returnRequests';
+  private returnRequestEndpoint =
+    this.ReturnRequestHttpBaseUrl + '/returnRequests';
 
-  constructor(
-    private httpClient: HttpClient
-  ) { }
+  constructor(private httpClient: HttpClient) {}
 
   createReturnRequest(returnRequestData: ReturnRequestData): Observable<any> {
     const headers: HttpHeaders = new HttpHeaders()
@@ -19,7 +18,7 @@ export class ReturnRequestHttpService {
       .append('Authorization', 'Basic ' + btoa('kid:secret'));
 
     return this.httpClient.post(this.returnRequestEndpoint, returnRequestData, {
-      headers
+      headers,
     });
   }
 }

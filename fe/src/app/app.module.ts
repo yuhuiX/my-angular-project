@@ -7,17 +7,9 @@ import { NgModule } from '@angular/core';
 import { ReturnRequestFormComponent } from './return-request-form/return-request-form.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    ReturnRequestFormComponent,
-  ],
-  imports: [
-    AppRoutingModule,
-    FormsModule,
-    BrowserModule,
-    HttpClientModule
-  ],
+  declarations: [AppComponent, ReturnRequestFormComponent],
+  imports: [AppRoutingModule, FormsModule, BrowserModule, HttpClientModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
