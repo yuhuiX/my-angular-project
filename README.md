@@ -53,3 +53,21 @@ The BE parts (Basic auth, username "foo", password "bar"):
   ]
 }
 ```
+
+## How to develop
+
+### Back-End part
+
+Go to the BE folder, and run
+```bash
+# start the server in development mode. Available at localhost:3000
+npm run start:dev
+```
+
+### Front-End part
+
+Go to the FE folder, and run
+```bash
+# start the Angular FE in development mode. Available at localhost:4200
+npm run start
+```
