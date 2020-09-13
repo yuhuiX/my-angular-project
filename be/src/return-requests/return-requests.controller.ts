@@ -4,7 +4,7 @@ import {
   ReturnRequest,
 } from './return-requests.interfaces';
 import { ReturnRequestsService } from './return-requests.service';
-import { LocalAuthGuard } from 'src/auth/local-auth.guard';
+import { LocalAuthGuard } from '../auth/local-auth.guard';
 
 @Controller('returnRequests')
 export class ReturnRequestsController {

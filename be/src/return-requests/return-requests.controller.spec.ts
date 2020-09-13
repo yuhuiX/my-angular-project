@@ -4,33 +4,25 @@ import {
 } from './return-requests.interfaces';
 import { Test, TestingModule } from '@nestjs/testing';
 
+import { AuthService } from '../auth/auth.service';
+import { CanActivate } from '@nestjs/common';
+import { LocalAuthGuard } from '../auth/local-auth.guard';
 import { ReturnRequestsController } from './return-requests.controller';
 import { ReturnRequestsService } from './return-requests.service';
+import { UsersService } from '../users/users.service';
 
 describe('ReturnRequests Controller', () => {
   let returnRequestsController: ReturnRequestsController;
   let returnRequestsService: ReturnRequestsService;
-
-  beforeEach(async () => {
-    const module: TestingModule = await Test.createTestingModule({
-      controllers: [ReturnRequestsController],
-      providers: [ReturnRequestsService],
-    }).compile();
-
-    returnRequestsController = module.get<ReturnRequestsController>(
-      ReturnRequestsController,
-    );
-    returnRequestsService = module.get<ReturnRequestsService>(
-      ReturnRequestsService,
-    );
-  });
 
   describe('createReturnRequest()', () => {
     let createdReturnRequest: ReturnRequest;
     let initialReturnRequest: InitialReturnRequest;
     let returnRequest: ReturnRequest;
 
-    beforeEach(() => {
+    beforeEach(async () => {
+      await initModule({ isUserAuthenticated: true });
+
       initialReturnRequest = { customerEmail: 'abc@localhost.com' };
 
       returnRequest = {
@@ -59,4 +51,29 @@ describe('ReturnRequests Controller', () => {
       expect(createdReturnRequest).toBe(returnRequest);
     });
   });
+
+  async function initModule({
+    isUserAuthenticated,
+  }: {
+    isUserAuthenticated: boolean;
+  }): Promise<void> {
+    const mockedLocalAuthGuard: CanActivate = {
+      canActivate: jest.fn(() => isUserAuthenticated),
+    };
+
+    const module: TestingModule = await Test.createTestingModule({
+      controllers: [ReturnRequestsController],
+      providers: [AuthService, ReturnRequestsService, UsersService],
+    })
+      .overrideGuard(LocalAuthGuard)
+      .useValue(mockedLocalAuthGuard)
+      .compile();
+
+    returnRequestsController = module.get<ReturnRequestsController>(
+      ReturnRequestsController,
+    );
+    returnRequestsService = module.get<ReturnRequestsService>(
+      ReturnRequestsService,
+    );
+  }
 });
