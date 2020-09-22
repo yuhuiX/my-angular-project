@@ -70,5 +70,11 @@
     },
     "coverageDirectory": "../coverage",
     "testEnvironment": "node"
+  },
+  "importSort": {
+    ".ts": {
+      "parser": "typescript",
+      "style": "module"
+    }
   }
 }
