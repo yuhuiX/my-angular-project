@@ -67,6 +67,12 @@ Go to the BE folder, and run
 npm run start:dev
 ```
 
+Example command with authentication
+
+```bash
+curl -X GET 'localhost:3000/skus?sku=22222' --user bob:haha
+```
+
 ### Front-End part
 
 Go to the FE folder, and run
