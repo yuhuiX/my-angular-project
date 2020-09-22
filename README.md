@@ -15,14 +15,16 @@ After submitting the final return request with all the devices, I should be able
 ## Some technical concerns
 
 The FE is a simple form, with 4 fields:
+
 - customer email (mandatory)
 - customer full name (optional)
 - device serial number(s) (format "AB12345". Invalid ones should be mentioned in the UI, but still sent to BE)
 - device SKU(s) (format "1234". )
 
 The BE parts (Basic auth, username "foo", password "bar"):
-- GET /devices?deviceSerialNumber=${deviceSerialNumber}, returns a Device
-- GET /skus?sku=${sku}, returns a Sku
+
+- GET `/devices?deviceSerialNumber=${deviceSerialNumber}`, returns a Device
+- GET `/skus?sku=${sku}`, returns a Sku
 - POST /returnRequests, returns a ReturnRequest
 - PUT /returnRequests/{id}, returns a ReturnRequest
 
@@ -59,6 +61,7 @@ The BE parts (Basic auth, username "foo", password "bar"):
 ### Back-End part
 
 Go to the BE folder, and run
+
 ```bash
 # start the server in development mode. Available at localhost:3000
 npm run start:dev
@@ -67,6 +70,7 @@ npm run start:dev
 ### Front-End part
 
 Go to the FE folder, and run
+
 ```bash
 # start the Angular FE in development mode. Available at localhost:4200
 npm run start
