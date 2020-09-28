@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 import { ReturnRequestData } from '../return-request-http/return-request-http.interfaces';
 import { ReturnRequestHttpService } from '../return-request-http/return-request-http.service';
@@ -9,12 +9,10 @@ import { ReturnRequestHttpService } from '../return-request-http/return-request-
   styleUrls: ['./return-request-form.component.css'],
   providers: [ReturnRequestHttpService],
 })
-export class ReturnRequestFormComponent implements OnInit {
+export class ReturnRequestFormComponent {
   public returnRequestData: any = {};
 
   constructor(private returnRequestHttpService: ReturnRequestHttpService) {}
-
-  ngOnInit(): void {}
 
   onSubmit(): void {
     this.returnRequestHttpService
