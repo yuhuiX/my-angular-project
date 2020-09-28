@@ -1,0 +1,11 @@
+<div>
+  <label for="deviceSerialNumber">Device Serial Number</label><br />
+  <input
+    type="text"
+    id="deviceSerialNumber"
+    [(ngModel)]="deviceData.deviceSerialNumber"
+    name="deviceSerialNumber"
+  />
+
+  <button (click)="verifyDeviceSerialNumber()">Verify</button>
+</div>
