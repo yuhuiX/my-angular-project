@@ -22,7 +22,7 @@
 </div>
 
 <br />
-<app-device></app-device>
+<app-device (deviceMessageEvent)="receiveDeviceMessage($event)"></app-device>
 
 <br />
 <button (click)="onSubmit()">Submit</button>

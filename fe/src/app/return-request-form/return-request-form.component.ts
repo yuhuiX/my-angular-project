@@ -21,4 +21,9 @@ export class ReturnRequestFormComponent {
         console.log(data);
       });
   }
+
+  receiveDeviceMessage($event: any): void {
+    console.log('$event', $event);
+    this.returnRequestData.devices = $event;
+  }
 }

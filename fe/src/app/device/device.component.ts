@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 import { ReturnRequestHttpService } from '../return-request-http/return-request-http.service';
 
@@ -12,13 +12,16 @@ export class DeviceComponent {
     deviceSerialNumber: '',
   };
 
+  @Output() deviceMessageEvent = new EventEmitter<string>();
+
   constructor(private returnRequestHttpService: ReturnRequestHttpService) {}
 
   public verifyDeviceSerialNumber(): void {
     this.returnRequestHttpService
       .findDeviceBySerialNumber(this.deviceData.deviceSerialNumber)
       .subscribe((data) => {
-        console.log(data);
+        console.log('device data', data);
+        this.deviceMessageEvent.emit(data);
       });
   }
 }
