@@ -13,12 +13,43 @@ export class ReturnRequestHttpService {
   constructor(private httpClient: HttpClient) {}
 
   createReturnRequest(returnRequestData: ReturnRequestData): Observable<any> {
+    return this.post({
+      endpoint: this.returnRequestEndpoint,
+      requestBody: returnRequestData,
+    });
+  }
+
+  private post({
+    endpoint,
+    requestBody,
+  }: {
+    endpoint: string;
+    requestBody: any;
+  }): Observable<any> {
+    return this.request({
+      endpoint,
+      method: 'post',
+      requestBody,
+    });
+  }
+
+  private request({
+    endpoint,
+    method,
+    requestBody,
+  }: {
+    endpoint: string;
+    method: 'post';
+    requestBody: any;
+  }): Observable<any> {
     const headers: HttpHeaders = new HttpHeaders()
       .append('Content-Type', 'application/json')
       .append('Authorization', 'Basic ' + btoa('kid:secret'));
 
-    return this.httpClient.post(this.returnRequestEndpoint, returnRequestData, {
-      headers,
-    });
+    if (method === 'post') {
+      return this.httpClient[method](endpoint, requestBody, {
+        headers,
+      });
+    }
   }
 }
