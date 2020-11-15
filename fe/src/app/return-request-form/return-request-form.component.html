@@ -22,7 +22,10 @@
 </div>
 
 <br />
-<app-device (deviceMessageEvent)="receiveDeviceMessage($event)"></app-device>
+<app-device
+  *ngFor="let deviceForm of deviceForms"
+  (deviceMessageEvent)="receiveDeviceMessage($event)"
+></app-device>
 
 <br />
 <button (click)="onSubmit()">Submit</button>

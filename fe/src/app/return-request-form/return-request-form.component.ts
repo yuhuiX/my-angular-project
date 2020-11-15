@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 
-import { ReturnRequestData } from '../return-request-http/return-request-http.interfaces';
+import {
+  Device,
+  ReturnRequestData,
+} from '../return-request-http/return-request-http.interfaces';
 import { ReturnRequestHttpService } from '../return-request-http/return-request-http.service';
 
 @Component({
@@ -10,9 +13,13 @@ import { ReturnRequestHttpService } from '../return-request-http/return-request-
   providers: [ReturnRequestHttpService],
 })
 export class ReturnRequestFormComponent {
+  public numberOfDeviceForms = 1;
+  public deviceForms: any[];
   public returnRequestData: any = {};
 
-  constructor(private returnRequestHttpService: ReturnRequestHttpService) {}
+  constructor(private returnRequestHttpService: ReturnRequestHttpService) {
+    this.updateDeviceForms();
+  }
 
   onSubmit(): void {
     this.returnRequestHttpService
@@ -22,8 +29,19 @@ export class ReturnRequestFormComponent {
       });
   }
 
-  receiveDeviceMessage($event: any): void {
-    console.log('$event', $event);
-    this.returnRequestData.devices = $event;
+  public receiveDeviceMessage(devices: Device[]): void {
+    console.log('received devices', devices);
+    this.returnRequestData.devices = this.returnRequestData.devices || [];
+    if (devices.length > 0) {
+      // there should be only one matching device
+      this.returnRequestData.devices.push(devices[0]);
+
+      this.numberOfDeviceForms += 1;
+      this.updateDeviceForms();
+    }
+  }
+
+  private updateDeviceForms(): void {
+    this.deviceForms = Array(this.numberOfDeviceForms);
   }
 }

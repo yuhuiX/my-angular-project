@@ -1,0 +1,6 @@
+.device-value__invalid {
+  border-color: red;
+}
+.device-value__valid {
+  border-color: green;
+}

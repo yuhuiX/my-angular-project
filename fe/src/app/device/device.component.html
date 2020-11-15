@@ -1,6 +1,7 @@
 <div>
   <label for="deviceSerialNumber">Device Serial Number</label><br />
   <input
+    [ngClass]="isValid ? 'device-value__valid' : 'device-value__invalid'"
     type="text"
     id="deviceSerialNumber"
     [(ngModel)]="deviceData.deviceSerialNumber"
