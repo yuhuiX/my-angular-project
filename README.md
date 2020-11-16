@@ -71,6 +71,8 @@ Example command with authentication
 
 ```bash
 curl -X GET 'localhost:3000/skus?sku=22222' --user bob:haha
+
+curl -X POST 'localhost:3000/returnRequests' -H "Content-Type: application/json" --user bob:haha -d '{"customerEmail":"a@bc.de"}'
 ```
 
 ### Front-End part
